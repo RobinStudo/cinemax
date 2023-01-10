@@ -9,7 +9,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 import { MovieExploreComponent } from './pages/movie-explore/movie-explore.component';
+import { MovieViewComponent } from './pages/movie-view/movie-view.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
     declarations: [
@@ -19,7 +21,9 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
         HomeComponent,
         AboutComponent,
         MovieExploreComponent,
+        MovieViewComponent,
         NotFoundComponent,
+        LoaderComponent,
     ],
     imports: [
         BrowserModule,

@@ -1,0 +1,27 @@
+<article class="movie" *ngIf="movie; else loader">
+    <header>
+        <h1>{{ movie.title }}</h1>
+        <div>
+            <span *ngIf="movie.title !== movie.original_title">{{ movie.original_title }}</span>
+            <span>{{ movie.release_date|date:'dd/MM/yyyy' }}</span>
+            <ng-container *ngFor="let person of movie.credits.crew">
+                <span *ngIf="person.job === 'Director'">{{ person.name }}</span>
+            </ng-container>
+            <span>Note : {{ movie.vote_average.toFixed(2) }}</span>
+        </div>
+    </header>
+
+    <div class="movie-preview">
+        <img [src]="'https://image.tmdb.org/t/p/w300/' + movie.poster_path" [alt]="'Affiche de ' + movie.title">
+        <p>{{ movie.overview }}</p>
+    </div>
+
+    <h2>Genres</h2>
+    <ul class="movie-genres">
+        <li *ngFor="let genre of movie.genres.slice(0, 3)">{{ genre.name }}</li>
+    </ul>
+</article>
+
+<ng-template #loader>
+    <app-loader></app-loader>
+</ng-template>
