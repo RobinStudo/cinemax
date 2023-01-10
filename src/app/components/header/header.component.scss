@@ -7,6 +7,7 @@ header{
 
     .site-name{
         font-size: 1.6rem;
+        font-weight: 700;
     }
 
     nav ul{
@@ -17,14 +18,21 @@ header{
         gap: 5px;
 
         li{
-            padding: 10px;
             cursor: pointer;
 
-            &:hover{
-                background-color: var(--color-light);
-                color: var(--color-primary);
+            a{
+                padding: 10px;
+
+                &:hover{
+                    background-color: var(--color-light);
+                    color: var(--color-primary);
+                }
             }
         }
+    }
+
+    a{
+        text-decoration: none;
     }
 }
 
