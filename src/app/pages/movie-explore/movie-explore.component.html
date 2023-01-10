@@ -1,2 +1,8 @@
 <h1>Explorez de nouveaux films</h1>
 
+<section>
+    <article *ngFor="let movie of movies">
+        <img [src]="'https://image.tmdb.org/t/p/w300/' + movie.backdrop_path" [alt]="'Affiche de ' + movie.title">
+        <h2>{{ movie.title }}</h2>
+    </article>
+</section>

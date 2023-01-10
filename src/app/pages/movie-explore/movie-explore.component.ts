@@ -7,8 +7,10 @@ import { HttpClient } from '@angular/common/http';
     styleUrls: ['./movie-explore.component.scss']
 })
 export class MovieExploreComponent {
+    movies: Array<any> = [];
+
     constructor(private http: HttpClient) {
         const url = 'https://api.themoviedb.org/3/discover/movie?api_key=';
-        this.http.get(url).subscribe(data => console.log(data));
+        this.http.get<any>(url).subscribe(data => this.movies = data.results);
     }
 }

@@ -1,1 +1,11 @@
-<p>about works!</p>
+<h1>{{ title }}</h1>
+<img [src]="image" alt="Mon image">
+
+<div *ngIf="!loaded">Chargement ...</div>
+<div *ngIf="loaded">Contenu chargé</div>
+
+<ul>
+    <li *ngFor="let entry of entries">
+        {{ entry }}
+    </li>
+</ul>
