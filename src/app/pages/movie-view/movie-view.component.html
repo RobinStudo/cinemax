@@ -4,9 +4,7 @@
         <div>
             <span *ngIf="movie.title !== movie.original_title">{{ movie.original_title }}</span>
             <span>{{ movie.release_date|date:'dd/MM/yyyy' }}</span>
-            <ng-container *ngFor="let person of movie.credits.crew">
-                <span *ngIf="person.job === 'Director'">{{ person.name }}</span>
-            </ng-container>
+            <span>{{ movie.credits.crew|displayCrewByJob:'Director' }}</span>
             <span>Note : {{ movie.vote_average.toFixed(2) }}</span>
         </div>
     </header>
