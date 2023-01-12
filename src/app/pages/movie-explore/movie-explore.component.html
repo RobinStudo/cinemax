@@ -1,11 +1,17 @@
 <h1>Explorez de nouveaux films</h1>
 
-<section *ngIf="movies.length; else loader">
+<section *ngIf="movies.length; else information">
     <article *ngFor="let movie of movies" [routerLink]="['/movie', movie.id]">
         <img [src]="'https://image.tmdb.org/t/p/w300/' + movie.backdrop_path" [alt]="'Affiche de ' + movie.title">
         <h2>{{ movie.title }}</h2>
     </article>
 </section>
+
+<ng-template #information>
+    <p *ngIf="error; else loader">
+        Une erreur est survenue, veuillez réessayer ultérieurement.
+    </p>
+</ng-template>
 
 <ng-template #loader>
     <app-loader></app-loader>

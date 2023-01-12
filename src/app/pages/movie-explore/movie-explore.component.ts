@@ -8,14 +8,16 @@ import { MovieApiService } from "../../services/movie-api.service";
 })
 export class MovieExploreComponent {
     movies: Array<any> = [];
-
-    // TODO - Gérer les erreurs
-
+    error: boolean = false;
+    
     constructor(private movieApiService: MovieApiService) {
         this.loadData();
     }
 
     loadData(){
-        this.movieApiService.explore().subscribe(data => this.movies = data.results);
+        this.movieApiService.explore().subscribe({
+            next: data => this.movies = data.results,
+            error: () => this.error = true,
+        });
     }
 }
