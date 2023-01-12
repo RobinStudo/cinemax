@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { MovieApiService } from "../../services/movie-api.service";
 
 @Component({
     selector: 'app-page-movie-explore',
@@ -9,8 +9,13 @@ import { HttpClient } from '@angular/common/http';
 export class MovieExploreComponent {
     movies: Array<any> = [];
 
-    constructor(private http: HttpClient) {
-        const url = 'https://api.themoviedb.org/3/discover/movie?api_key=';
-        this.http.get<any>(url).subscribe(data => this.movies = data.results);
+    // TODO - Gérer les erreurs
+
+    constructor(private movieApiService: MovieApiService) {
+        this.loadData();
+    }
+
+    loadData(){
+        this.movieApiService.explore().subscribe(data => this.movies = data.results);
     }
 }
