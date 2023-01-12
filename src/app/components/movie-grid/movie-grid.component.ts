@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
     selector: 'app-movie-grid',
@@ -7,4 +7,9 @@ import { Component, Input } from '@angular/core';
 })
 export class MovieGridComponent {
     @Input() movies: Array<any> = [];
+    @Output() loadMore: EventEmitter<void> = new EventEmitter();
+
+    triggerLoadMore(){
+        this.loadMore.emit();
+    }
 }
