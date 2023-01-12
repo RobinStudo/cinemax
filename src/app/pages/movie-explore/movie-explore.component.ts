@@ -8,6 +8,7 @@ import { MovieApiService } from "../../services/movie-api.service";
 })
 export class MovieExploreComponent {
     movies: Array<any> = [];
+    currentPage: number = 0;
     error: boolean = false;
 
     constructor(private movieApiService: MovieApiService) {
@@ -15,8 +16,9 @@ export class MovieExploreComponent {
     }
 
     loadData(){
-        this.movieApiService.explore().subscribe({
-            next: data => this.movies = data.results,
+        this.currentPage++;
+        this.movieApiService.explore(this.currentPage).subscribe({
+            next: data => this.movies = this.movies.concat(data.results),
             error: () => this.error = true,
         });
     }

@@ -2,6 +2,8 @@
 
 <app-movie-grid *ngIf="movies.length; else information" [movies]="movies"></app-movie-grid>
 
+<button (click)="loadData()">Voir plus</button>
+
 <ng-template #information>
     <app-error *ngIf="error; else loader"></app-error>
 </ng-template>

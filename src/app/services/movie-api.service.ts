@@ -13,9 +13,10 @@ export class MovieApiService {
         this.config = environment.movieApi;
     }
 
-    explore(): Observable<any> {
+    explore(page: number = 1): Observable<any> {
         const url = this.buildUrl('/discover/movie');
         const options = this.buildOptions();
+        options.params.page = page;
 
         return this.http.get<any>(url, options);
     }
