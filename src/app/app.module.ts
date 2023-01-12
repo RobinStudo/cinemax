@@ -14,6 +14,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { ErrorComponent } from './components/error/error.component';
 import { MovieTopRatedComponent } from './pages/movie-top-rated/movie-top-rated.component';
+import { MovieGridComponent } from './components/movie-grid/movie-grid.component';
+import { MovieCardComponent } from './components/movie-card/movie-card.component';
 
 @NgModule({
     declarations: [
@@ -28,6 +30,8 @@ import { MovieTopRatedComponent } from './pages/movie-top-rated/movie-top-rated.
         LoaderComponent,
         ErrorComponent,
         MovieTopRatedComponent,
+        MovieGridComponent,
+        MovieCardComponent,
     ],
     imports: [
         BrowserModule,
