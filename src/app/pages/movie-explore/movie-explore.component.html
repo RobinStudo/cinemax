@@ -8,9 +8,7 @@
 </section>
 
 <ng-template #information>
-    <p *ngIf="error; else loader">
-        Une erreur est survenue, veuillez réessayer ultérieurement.
-    </p>
+    <app-error *ngIf="error; else loader"></app-error>
 </ng-template>
 
 <ng-template #loader>

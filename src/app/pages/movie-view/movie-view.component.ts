@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MovieApiService } from "../../services/movie-api.service";
 
 @Component({
@@ -9,11 +9,27 @@ import { MovieApiService } from "../../services/movie-api.service";
 })
 export class MovieViewComponent{
     movie: any;
+    error: boolean = false;
 
-    // TODO - Gérer les erreurs
+    constructor(
+        private route: ActivatedRoute,
+        private router: Router,
+        private movieApiService: MovieApiService
+    ) {
+        this.loadData();
+    }
 
-    constructor(private route: ActivatedRoute, private movieApiService: MovieApiService) {
+    loadData(){
         const id = this.route.snapshot.params['id'];
-        this.movieApiService.findOne(id).subscribe(data => this.movie = data);
+        this.movieApiService.findOne(id).subscribe({
+            next: data => this.movie = data,
+            error: err => {
+                if (err.status === 404) {
+                    this.router.navigate(['/error/404']);
+                } else {
+                    this.error = true;
+                }
+            },
+        });
     }
 }

@@ -12,6 +12,7 @@ import { MovieExploreComponent } from './pages/movie-explore/movie-explore.compo
 import { MovieViewComponent } from './pages/movie-view/movie-view.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
     declarations: [
@@ -24,6 +25,7 @@ import { LoaderComponent } from './components/loader/loader.component';
         MovieViewComponent,
         NotFoundComponent,
         LoaderComponent,
+        ErrorComponent,
     ],
     imports: [
         BrowserModule,

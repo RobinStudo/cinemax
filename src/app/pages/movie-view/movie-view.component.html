@@ -1,4 +1,4 @@
-<article class="movie" *ngIf="movie; else loader">
+<article class="movie" *ngIf="movie; else information">
     <header>
         <h1>{{ movie.title }}</h1>
         <div>
@@ -21,6 +21,10 @@
         <li *ngFor="let genre of movie.genres.slice(0, 3)">{{ genre.name }}</li>
     </ul>
 </article>
+
+<ng-template #information>
+    <app-error *ngIf="error; else loader"></app-error>
+</ng-template>
 
 <ng-template #loader>
     <app-loader></app-loader>

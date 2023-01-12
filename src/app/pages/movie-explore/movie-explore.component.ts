@@ -9,7 +9,7 @@ import { MovieApiService } from "../../services/movie-api.service";
 export class MovieExploreComponent {
     movies: Array<any> = [];
     error: boolean = false;
-    
+
     constructor(private movieApiService: MovieApiService) {
         this.loadData();
     }

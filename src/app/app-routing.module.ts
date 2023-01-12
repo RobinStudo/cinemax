@@ -12,7 +12,8 @@ const routes: Routes = [
     { path: 'about', component: AboutComponent },
     { path: 'movie/explore', component: MovieExploreComponent },
     { path: 'movie/:id', component: MovieViewComponent },
-    { path: '**', component: NotFoundComponent },
+    { path: 'error/404', component: NotFoundComponent },
+    { path: '**', redirectTo: '/error/404' },
 ];
 
 @NgModule({
