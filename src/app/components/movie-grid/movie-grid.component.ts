@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild } from '@angular/core';
 
 @Component({
     selector: 'app-movie-grid',
@@ -7,9 +7,16 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class MovieGridComponent {
     @Input() movies: Array<any> = [];
+    @Input() loadMoreLocked: boolean = true;
     @Output() loadMore: EventEmitter<void> = new EventEmitter();
+    @ViewChild('grid') gridElement!: ElementRef;
 
-    triggerLoadMore(){
-        this.loadMore.emit();
+    @HostListener('window:scroll')
+    onScroll(){
+        const currentPosition = window.scrollY + window.innerHeight;
+        const gridBottomPosition = this.gridElement.nativeElement.offsetTop + this.gridElement.nativeElement.offsetHeight;
+        if (currentPosition > gridBottomPosition && !this.loadMoreLocked) {
+            this.loadMore.emit();
+        }
     }
 }

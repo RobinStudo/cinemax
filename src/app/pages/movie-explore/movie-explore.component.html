@@ -1,6 +1,7 @@
 <h1>Explorez de nouveaux films</h1>
 
-<app-movie-grid *ngIf="movies.length; else information" [movies]="movies" (loadMore)="loadData()"></app-movie-grid>
+<app-movie-grid *ngIf="movies.length; else information"
+                [movies]="movies" [loadMoreLocked]="loadDataLocked" (loadMore)="loadData()"></app-movie-grid>
 
 <ng-template #information>
     <app-error *ngIf="error; else loader"></app-error>

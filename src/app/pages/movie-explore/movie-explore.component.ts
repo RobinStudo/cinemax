@@ -10,15 +10,20 @@ export class MovieExploreComponent {
     movies: Array<any> = [];
     currentPage: number = 0;
     error: boolean = false;
+    loadDataLocked: boolean = false;
 
     constructor(private movieApiService: MovieApiService) {
         this.loadData();
     }
 
     loadData(){
+        this.loadDataLocked = true;
         this.currentPage++;
         this.movieApiService.explore(this.currentPage).subscribe({
-            next: data => this.movies = this.movies.concat(data.results),
+            next: data => {
+                this.movies = this.movies.concat(data.results);
+                this.loadDataLocked = false;
+            },
             error: () => this.error = true,
         });
     }
