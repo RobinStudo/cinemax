@@ -20,6 +20,13 @@ export class MovieApiService {
         return this.http.get<any>(url, options);
     }
 
+    topRated(): Observable<any> {
+        const url = this.buildUrl('/movie/top_rated');
+        const options = this.buildOptions();
+
+        return this.http.get<any>(url, options);
+    }
+
     findOne(id: number): Observable<any> {
         const url = this.buildUrl('/movie/' + id);
         const options = this.buildOptions();

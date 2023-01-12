@@ -13,6 +13,7 @@ import { MovieViewComponent } from './pages/movie-view/movie-view.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { ErrorComponent } from './components/error/error.component';
+import { MovieTopRatedComponent } from './pages/movie-top-rated/movie-top-rated.component';
 
 @NgModule({
     declarations: [
@@ -26,6 +27,7 @@ import { ErrorComponent } from './components/error/error.component';
         NotFoundComponent,
         LoaderComponent,
         ErrorComponent,
+        MovieTopRatedComponent,
     ],
     imports: [
         BrowserModule,

@@ -1,0 +1,16 @@
+<h1>Découvrez les chefs d'oeuvres du cinéma</h1>
+
+<section *ngIf="movies.length; else information">
+    <article *ngFor="let movie of movies" [routerLink]="['/movie', movie.id]">
+        <img [src]="'https://image.tmdb.org/t/p/w300/' + movie.backdrop_path" [alt]="'Affiche de ' + movie.title">
+        <h2>{{ movie.title }}</h2>
+    </article>
+</section>
+
+<ng-template #information>
+    <app-error *ngIf="error; else loader"></app-error>
+</ng-template>
+
+<ng-template #loader>
+    <app-loader></app-loader>
+</ng-template>
