@@ -36,10 +36,11 @@ export class MovieApiService {
         return this.http.get<any>(url, options);
     }
 
-    search(query: string): Observable<any> {
+    search(query: string, includeAdultContent = false): Observable<any> {
         const url = this.buildUrl('/search/movie');
         const options = this.buildOptions();
         options.params.query = query;
+        options.params.include_adult = includeAdultContent;
 
         return this.http.get<any>(url, options);
     }

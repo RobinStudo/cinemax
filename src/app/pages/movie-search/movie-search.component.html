@@ -3,6 +3,10 @@
 <form (ngSubmit)="search()">
     <input type="search" name="query" placeholder="Rechercher un film ..." [(ngModel)]="query">
     <button>Rechercher</button>
+    <label>
+        <input type="checkbox" name="includeAdult" [(ngModel)]="includeAdultContent">
+        Inclure le contenu pour adulte
+    </label>
 </form>
 
 <ng-container *ngIf="firstQuerySent">

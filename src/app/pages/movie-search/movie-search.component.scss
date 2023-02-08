@@ -1,5 +1,6 @@
 form{
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
 
     input[type="search"] {
@@ -7,5 +8,9 @@ form{
         border: none;
         padding: 5px;
         font-size: 1rem;
+    }
+
+    label{
+        flex: 1 0 100%;
     }
 }

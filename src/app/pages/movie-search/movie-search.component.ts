@@ -8,6 +8,7 @@ import { MovieApiService } from "../../services/movie-api.service";
 })
 export class MovieSearchComponent {
     query = '';
+    includeAdultContent = false;
     movies?: any[];
     loading = false;
     firstQuerySent = false;
@@ -19,7 +20,7 @@ export class MovieSearchComponent {
         this.loading = true;
         this.movies = undefined;
 
-        this.movieApiService.search(this.query).subscribe({
+        this.movieApiService.search(this.query, this.includeAdultContent).subscribe({
             next: data => {
                 this.loading = false;
                 this.movies = data.results;
