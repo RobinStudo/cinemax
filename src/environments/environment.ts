@@ -5,4 +5,7 @@ export const environment = {
         baseUrl: 'https://api.themoviedb.org/3',
         apiKey: secrets.movieApiKey,
     },
+    feedbackApi: {
+        baseUrl: 'http://localhost:3000/feedback'
+    },
 };

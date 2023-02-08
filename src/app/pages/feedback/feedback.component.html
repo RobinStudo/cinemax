@@ -1,0 +1,33 @@
+<h1>Envoyer un feedback</h1>
+
+<form [formGroup]="feedbackForm" #form="ngForm" (ngSubmit)="sendFeedback()" *ngIf="!feedbackSent; else success">
+    <label>
+        Nom
+        <input type="text" name="name" formControlName="name">
+        <p *ngIf="feedbackForm.controls.name.invalid && form.submitted">
+            Vous devez saisir un nom d'au moins 3 caractères
+        </p>
+    </label>
+    <label>
+        E-mail
+        <input type="email" name="email" formControlName="email">
+        <p *ngIf="feedbackForm.controls.email.hasError('required') && form.submitted">
+            Vous devez saisir un email
+        </p>
+        <p *ngIf="feedbackForm.controls.email.hasError('email') && form.submitted">
+            Vous devez saisir un email valide
+        </p>
+    </label>
+    <label>
+        Message
+        <textarea name="message" rows="10" formControlName="message"></textarea>
+        <p *ngIf="feedbackForm.controls.message.invalid && form.submitted">
+            Vous devez saisir un message d'au moins 10 caractères
+        </p>
+    </label>
+    <button>Envoyer</button>
+</form>
+
+<ng-template #success>
+    <p>Feedback envoyé !</p>
+</ng-template>

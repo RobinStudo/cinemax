@@ -3,7 +3,7 @@ import { NgForm } from "@angular/forms";
 import { MovieApiService } from "../../services/movie-api.service";
 
 @Component({
-    selector: 'app-movie-search',
+    selector: 'app-page-movie-search',
     templateUrl: './movie-search.component.html',
     styleUrls: ['./movie-search.component.scss']
 })
