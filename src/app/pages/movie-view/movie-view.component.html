@@ -11,7 +11,7 @@
 
     <div class="movie-preview">
         <img [src]="'https://image.tmdb.org/t/p/w300/' + movie.poster_path" [alt]="'Affiche de ' + movie.title">
-        <p>{{ movie.overview }}</p>
+        <p appExpandable>{{ movie.overview }}</p>
     </div>
 
     <h2>Genres</h2>

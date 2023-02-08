@@ -17,6 +17,7 @@ import { MovieTopRatedComponent } from './pages/movie-top-rated/movie-top-rated.
 import { MovieGridComponent } from './components/movie-grid/movie-grid.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { DisplayCrewByJobPipe } from "./pipes/display-crew-by-job.pipe";
+import { ExpandableDirective } from './directives/expandable.directive';
 
 @NgModule({
     declarations: [
@@ -34,6 +35,7 @@ import { DisplayCrewByJobPipe } from "./pipes/display-crew-by-job.pipe";
         MovieGridComponent,
         MovieCardComponent,
         DisplayCrewByJobPipe,
+        ExpandableDirective,
     ],
     imports: [
         BrowserModule,
