@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { MovieGridComponent } from './components/movie-grid/movie-grid.component
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { DisplayCrewByJobPipe } from "./pipes/display-crew-by-job.pipe";
 import { ExpandableDirective } from './directives/expandable.directive';
+import { MovieSearchComponent } from './pages/movie-search/movie-search.component';
 
 @NgModule({
     declarations: [
@@ -36,10 +38,12 @@ import { ExpandableDirective } from './directives/expandable.directive';
         MovieCardComponent,
         DisplayCrewByJobPipe,
         ExpandableDirective,
+        MovieSearchComponent,
     ],
     imports: [
         BrowserModule,
         HttpClientModule,
+        FormsModule,
         AppRoutingModule,
     ],
     providers: [],

@@ -36,6 +36,14 @@ export class MovieApiService {
         return this.http.get<any>(url, options);
     }
 
+    search(query: string): Observable<any> {
+        const url = this.buildUrl('/search/movie');
+        const options = this.buildOptions();
+        options.params.query = query;
+
+        return this.http.get<any>(url, options);
+    }
+
     private buildUrl(endpoint: string): string {
         return this.config.baseUrl + endpoint;
     }

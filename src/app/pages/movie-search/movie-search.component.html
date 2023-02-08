@@ -1,0 +1,9 @@
+<h1>Recherche</h1>
+
+<form (ngSubmit)="search()">
+    <input type="search" name="query" placeholder="Rechercher un film ..." [(ngModel)]="query">
+    <button>Rechercher</button>
+</form>
+
+<app-movie-grid [movies]="movies"></app-movie-grid>
+

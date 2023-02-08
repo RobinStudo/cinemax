@@ -1,0 +1,11 @@
+form{
+    display: flex;
+    gap: 10px;
+
+    input[type="search"] {
+        flex: 1;
+        border: none;
+        padding: 5px;
+        font-size: 1rem;
+    }
+}

@@ -7,6 +7,7 @@ import { MovieExploreComponent } from "./pages/movie-explore/movie-explore.compo
 import { NotFoundComponent } from "./pages/not-found/not-found.component";
 import { MovieViewComponent } from "./pages/movie-view/movie-view.component";
 import { MovieTopRatedComponent } from "./pages/movie-top-rated/movie-top-rated.component";
+import { MovieSearchComponent } from "./pages/movie-search/movie-search.component";
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
         children: [
             { path: 'explore', component: MovieExploreComponent },
             { path: 'top-rated', component: MovieTopRatedComponent },
+            { path: 'search', component: MovieSearchComponent },
             { path: ':id', component: MovieViewComponent },
         ],
     },
