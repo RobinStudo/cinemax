@@ -5,5 +5,16 @@
     <button>Rechercher</button>
 </form>
 
-<app-movie-grid [movies]="movies"></app-movie-grid>
+<ng-container *ngIf="firstQuerySent">
+    <ng-container *ngIf="!loading; else loader">
+        <app-movie-grid [movies]="movies" *ngIf="movies; else error"></app-movie-grid>
+    </ng-container>
+</ng-container>
 
+<ng-template #error>
+    <app-error></app-error>
+</ng-template>
+
+<ng-template #loader>
+    <app-loader></app-loader>
+</ng-template>

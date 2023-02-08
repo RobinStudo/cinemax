@@ -8,15 +8,23 @@ import { MovieApiService } from "../../services/movie-api.service";
 })
 export class MovieSearchComponent {
     query = '';
-    movies: any[] = [];
-
-    // TODO - Gestion des erreurs, resultat vide, affichage d'un loader
+    movies?: any[];
+    loading = false;
+    firstQuerySent = false;
 
     constructor(private movieApiService: MovieApiService) {}
 
     search() {
+        this.firstQuerySent = true;
+        this.loading = true;
+        this.movies = undefined;
+
         this.movieApiService.search(this.query).subscribe({
-            next: data => this.movies = data.results,
+            next: data => {
+                this.loading = false;
+                this.movies = data.results;
+            },
+            error: () => this.loading = false,
         });
     }
 }

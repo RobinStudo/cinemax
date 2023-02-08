@@ -1,3 +1,7 @@
-<section #grid>
+<section #grid *ngIf="movies.length !== 0; else emptyResult">
     <app-movie-card *ngFor="let movie of movies" [movie]="movie"></app-movie-card>
 </section>
+
+<ng-template #emptyResult>
+    <p>Aucun résultat trouvé pour ces critères</p>
+</ng-template>
