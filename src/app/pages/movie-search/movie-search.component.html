@@ -1,7 +1,11 @@
 <h1>Recherche</h1>
 
-<form (ngSubmit)="search()">
-    <input type="search" name="query" placeholder="Rechercher un film ..." [(ngModel)]="query">
+<p *ngIf="queryInput.invalid && searchForm.submitted">
+    Vous devez saisir un terme pour effectuer une recherche
+</p>
+<form #searchForm="ngForm" (ngSubmit)="search()">
+    <input type="search" name="query" placeholder="Rechercher un film ..."
+           [(ngModel)]="query" #queryInput="ngModel" required>
     <button>Rechercher</button>
     <label>
         <input type="checkbox" name="includeAdult" [(ngModel)]="includeAdultContent">

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { NgForm } from "@angular/forms";
 import { MovieApiService } from "../../services/movie-api.service";
 
 @Component({
@@ -12,10 +13,15 @@ export class MovieSearchComponent {
     movies?: any[];
     loading = false;
     firstQuerySent = false;
+    @ViewChild('searchForm') searchForm!: NgForm;
 
     constructor(private movieApiService: MovieApiService) {}
 
     search() {
+        if (this.searchForm.invalid) {
+            return;
+        }
+
         this.firstQuerySent = true;
         this.loading = true;
         this.movies = undefined;
