@@ -9,11 +9,12 @@ import { MovieViewComponent } from "./pages/movie-view/movie-view.component";
 import { MovieTopRatedComponent } from "./pages/movie-top-rated/movie-top-rated.component";
 import { MovieSearchComponent } from "./pages/movie-search/movie-search.component";
 import { FeedbackComponent } from "./pages/feedback/feedback.component";
+import { FeedbackGuard } from "./guards/feedback.guard";
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'about', component: AboutComponent },
-    { path: 'feedback', component: FeedbackComponent },
+    { path: 'feedback', component: FeedbackComponent, canActivate: [FeedbackGuard] },
     {
         path: 'movie',
         children: [
