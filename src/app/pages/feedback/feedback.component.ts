@@ -9,10 +9,10 @@ import { FeedbackApiService } from "../../services/feedback-api.service";
 })
 export class FeedbackComponent {
     feedbackSent = false;
-    feedbackForm = new FormGroup({
-        name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-        email: new FormControl('', [Validators.required, Validators.email]),
-        message: new FormControl('', [Validators.required, Validators.minLength(10)]),
+    feedbackForm: FormGroup = new FormGroup({
+        name: new FormControl<string>('', [Validators.required, Validators.minLength(3)]),
+        email: new FormControl<string>('', [Validators.required, Validators.email]),
+        message: new FormControl<string>('', [Validators.required, Validators.minLength(10)]),
     });
 
     constructor(private feedbackApi: FeedbackApiService) {}

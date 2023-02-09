@@ -4,24 +4,24 @@
     <label>
         Nom
         <input type="text" name="name" formControlName="name">
-        <p *ngIf="feedbackForm.controls.name.invalid && form.submitted">
+        <p *ngIf="feedbackForm.get('name')?.invalid && form.submitted">
             Vous devez saisir un nom d'au moins 3 caractères
         </p>
     </label>
     <label>
         E-mail
         <input type="email" name="email" formControlName="email">
-        <p *ngIf="feedbackForm.controls.email.hasError('required') && form.submitted">
+        <p *ngIf="feedbackForm.get('email')?.hasError('required') && form.submitted">
             Vous devez saisir un email
         </p>
-        <p *ngIf="feedbackForm.controls.email.hasError('email') && form.submitted">
+        <p *ngIf="feedbackForm.get('email')?.hasError('email') && form.submitted">
             Vous devez saisir un email valide
         </p>
     </label>
     <label>
         Message
         <textarea name="message" rows="10" formControlName="message"></textarea>
-        <p *ngIf="feedbackForm.controls.message.invalid && form.submitted">
+        <p *ngIf="feedbackForm.get('message')?.invalid && form.submitted">
             Vous devez saisir un message d'au moins 10 caractères
         </p>
     </label>
